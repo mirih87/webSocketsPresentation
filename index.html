@@ -1,0 +1,318 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+
+        <section>
+            <h1>Agenda - Browser communication</h1>
+            <ol>
+                <li class="fragment">Request - Response</li>
+                <li class="fragment">File</li>
+                <li class="fragment">Two way - Fun Demo</li>
+                <li class="fragment">Peer to peer</li>
+            </ol>
+        </section>
+        <section>
+            <section>
+                <h1>Request - Response</h1>
+            </section>
+            <section>
+                <h1>Http</h1>
+                <p>Hypertext Transfer Protocol</p>
+                <p>
+                    Defines a set of request methods to indicate the desired
+                    action to be performed for a given resource
+                </p>
+                <ul>
+                    <li>Plain text - human readable</li>
+                </ul>
+            </section>
+            <section>
+                <h1>HTTPS</h1>
+                <p>Hypertext Transfer Protocol Secure</p>
+                <p>Adds a layer of security on the data in transit through a secure socket layer (SSL)
+                    or transport layer security (TLS) protocol connection.</p>
+            </section>
+            <section>
+                <h1>HTTP2</h1>
+                <p>
+                    HTTP/2 attempts to solve many of the shortcomings and inflexibilities of HTTP/1.1.
+
+                    Its many benefits include:
+                </p>
+                <ul>
+                    <li>Multiplexing and concurrency: Several requests can be sent in rapid succession on the same TCP connection, and responses can be received out of order - eliminating the need for multiple connections between the client and the server</li>
+                    <li>Stream dependencies: the client can indicate to the server which of the resources are more important
+                        than the others</li>
+                    <li>Header compression: HTTP header size is drastically reduced</li>
+                    <li>Server push: The server can send resources the client has not yet requested</li>
+                </ul>
+            </section>
+            <section>
+                <p>
+                <pre style="background: #464646; font-size: 0.9rem">
+
+        <label style="color: #26aeff">GET</label>
+        The GET method requests a representation of the specified resource.
+        Requests using GET should only retrieve data.
+
+        <label style="color: #26aeff">HEAD</label>
+        The HEAD method asks for a response identical to that of a GET request,
+        but without the response body.
+
+        <label style="color: #26aeff">POST</label>
+        The POST method is used to submit an entity to the specified resource,
+        often causing a change in state or side effects on the server
+
+        <label style="color: #26aeff">PUT</label>
+        The PUT method replaces all current representations of the target resource with
+        the request payload.
+
+        <label style="color: #26aeff">DELETE</label>
+        The DELETE method deletes the specified resource.
+
+        <label style="color: #26aeff">CONNECT</label>
+        The CONNECT method establishes a tunnel to the server
+        identified by the target resource.
+
+        <label style="color: #26aeff">OPTIONS</label>
+        The OPTIONS method is used to describe the communication
+        options for the target resource.
+
+        <label style="color: #26aeff">TRACEM</label>
+        The TRACE method performs a message loop-back test along the
+        path to the target resource.
+
+        <label style="color: #26aeff">PATCH</label>
+        The PATCH method is used to apply partial modifications to a resource.
+
+        </pre>
+                </p>
+            </section>
+            <section data-background="#dddddd">
+                <h2>Form</h2>
+                <img src="https://developer.mozilla.org/files/4579/form-sketch-low.jpg"/>
+            </section>
+            <section data-background="#dddddd">
+    <pre><code class="hljs">
+    <form action="/my-handling-form-page" method="post">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="user_name">
+        </div>
+        <div>
+            <label for="mail">E-mail:</label>
+            <input type="email" id="mail" name="user_mail">
+        </div>
+        <div>
+            <label for="msg">Message:</label>
+            <textarea id="msg" name="user_message"></textarea>
+        </div>
+    </form>
+    </code></pre>
+                <pre><code class="hljs">
+    curl "https://mdn.mozillademos.org/my-handling-form-page" /
+        -H "content-type: application/x-www-form-urlencoded" /
+        -H "user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36" /
+        --data "user_name=miri^&user_email=miri^%^40gmail.com^&user_message=The best presentation ever" /
+        --compressed
+    </code></pre>
+            </section>
+            <section data-background="#dddddd">
+                <h4 style="margin-bottom: 5px">Ajax</h4>
+                <p style="margin-top: 0; margin-bottom: 10px; font-size: 1.2rem">Asynchronous JavaScript + XML(?)</p>
+                <p style="font-size: 1.1rem; margin-top: 0">
+                    Ajax is a set of  Web technologies on the client side to create asynchronous Web applications
+                </p>
+                    <pre class="fragment">
+                    <code>
+                function reqListener () {
+                  console.log(this.responseText);
+                }
+
+                var oReq = new XMLHttpRequest();
+                oReq.addEventListener("load", reqListener);
+                oReq.open("GET", "http://www.example.org/example.txt");
+                oReq.send();
+                    </code>
+                </pre>
+                <pre class="fragment">
+                    <code>
+                var myImage = document.querySelector('img');
+                fetch('flowers.jpg').then(function(response) {
+                  return response.blob();
+                }).then(function(myBlob) {
+                  var objectURL = URL.createObjectURL(myBlob);
+                  myImage.src = objectURL;
+                });
+                    </code>
+                    </pre>
+                </section>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h1>File Protocols</h1>
+            </section>
+            <section>
+                <h2>file:///</h2>
+                <p>
+                   file:///C:/My Documents - Opens a file or folder<br/>
+                    on a local or network drive.
+                </p>
+                <section>
+                    <div  style="display: flex">
+                    <img src="images/file.png" style="flex: 1; height: 350px; margin-right: 20px">
+                    <img src="images/file2.png" style="flex: 1; height: 350px">
+                    </div>
+                </section>
+            </section>
+            <section>
+                <h3>FTP</h3>
+                <p>File transfer protocol</p>
+                <p>FTP users may authenticate themselves with a clear-text sign-in protocol, normally in the form of a username and password.
+                    <br/><br/>- Can connect anonymously if the server is configured to allow it.
+                    <br/><br/>- Secure transmission that protects the username and password, and encrypts the content, FTP is often secured with SSL/TLS (FTPS)</p>
+            </section>
+            <section>
+                <img src="images/ftp.png">
+            </section>
+        </section>
+        <section>
+            <section>
+                <h1>WebSocket Protocol</h1>
+                <p>Two-way communication link between client and server</p>
+            </section>
+            <section>
+                <p>
+                The browser sends a request to the server, indicating that it wants to switch protocols
+                from HTTP to WebSocket. The client expresses its desire through the Upgrade header:
+                    </p>
+                <pre>
+                <code>
+        GET ws://echo.websocket.org/?encoding=text HTTP/1.1
+        Origin: http://websocket.org
+        Cookie: __utma=99as
+        Connection: Upgrade
+        Host: echo.websocket.org
+        Sec-WebSocket-Key: uRovscZjNol/umbTt5uKmw==
+        Upgrade: websocket
+        Sec-WebSocket-Version: 13
+        </code>
+                    </pre>
+        </section>
+            <section>
+  <p> If the server understands the WebSocket protocol, it agrees to the protocol switch
+      through the Upgrade header.</p>
+
+               <pre><code>
+        HTTP/1.1 101 WebSocket Protocol Handshake
+        Date: Fri, 10 Feb 2012 17:38:18 GMT
+        Connection: Upgrade
+        Server: Kaazing Gateway
+        Upgrade: WebSocket
+        Access-Control-Allow-Origin: http://websocket.org
+        Access-Control-Allow-Credentials: true
+        Sec-WebSocket-Accept: rLHCkw/SKsO9GAH/ZSFhBATDKrU=
+        Access-Control-Allow-Headers: content-type
+                    </code></pre>
+                    At this point the HTTP connection breaks down and is replaced by the WebSocket connection over the same underlying TCP/IP connection. The WebSocket connection uses the same ports as HTTP (80) and HTTPS (443), by default.
+                    </section>
+                <section>
+                    <h3>HTTP VS Websockets</h3>
+                    <h5>Http Advantages</h5>
+                    <ul>
+                        <li>
+                            Resource oriented structure on the protocol level.<br/>
+                            sockets are just unstructured data.
+                        </li>
+                        <li>
+                            Increases load on the server as each client keep a permanently open connection.
+                        </li>
+                    </ul>
+                    <h5>Websockets Advantages</h5>
+                    <ul>
+                        <li>
+                            Communication is set up once, saves on the time
+                            needed to set up the communication for reach request.
+                            (DNS lookup, Connection Initialization, SSL).
+                        </li>
+                        <li>
+                            The TCP layer doesnt need to be set up each time.
+                        </li>
+                        <li>
+                            Headers are much much smaller
+                        </li>
+                        <li>
+                            No need for the client to make unnecessary request which
+                            frees up resources on the client which need to handle
+                            the requests (javascript execution, the event loop stack).
+                        </li>
+                        <li>
+                            Since the server can push data to the client, state managments
+                            Is much easier. Each active connections can just receive new updates to data.
+                        </li>
+                    </ul>
+                </section>
+                <section data-background="images/jSxK33dwEMbkY.gif">Demo Time :)</section>
+        </section>
+        <section>
+            <h1>Web RTC</h1>
+            <p>
+                WebRTC (Web Real-Time Communications) is a technology which enables Web applications and sites
+                to capture and optionally stream audio and/or video media,
+                as well as to exchange arbitrary data between browsers without requiring an intermediary.
+                The server only handles the introduction between the peers.
+            </p>
+        </section>
+        <section>
+            <h1>Thank you!</h1>
+        </section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            }
+        ]
+    });
+</script>
+</body>
+</html>
