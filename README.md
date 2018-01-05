@@ -1,4 +1,4 @@
-# TypesPresentation
+# webSocketsPresentation
 https://mirih87.github.io/webSocketsPresentation
 
 ## Run Locally
