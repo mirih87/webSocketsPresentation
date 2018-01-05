@@ -56,26 +56,8 @@
                     or transport layer security (TLS) protocol connection.</p>
             </section>
             <section>
-                <h1>HTTP2</h1>
-                <p>
-                    HTTP/2 attempts to solve many of the shortcomings and inflexibilities of HTTP/1.1.
-
-                    Its many benefits include:
-                </p>
-                <ul>
-                    <li>Multiplexing and concurrency: Several requests can be sent in rapid succession on the same TCP connection, and responses can be received out of order - eliminating the need for multiple connections between the client and the server</li>
-                    <li>Stream dependencies: the client can indicate to the server which of the resources are more important
-                        than the others</li>
-                    <li>Header compression: HTTP header size is drastically reduced</li>
-                    <li>Server push: The server can send resources the client has not yet requested</li>
-                </ul>
-            </section>
-            <section>
-                <img src="images/http2.png">
-            </section>
-            <section>
-                <p>
-                <pre style="background: #464646; font-size: 0.9rem">
+                    <p>
+                    <pre style="background: #464646; font-size: 0.9rem">
 
         <label style="color: #26aeff">GET</label>
         The GET method requests a representation of the specified resource.
@@ -112,7 +94,30 @@
         The PATCH method is used to apply partial modifications to a resource.
 
         </pre>
+                    </p>
+                </section>
+            <section>
+                <h1>HTTP2</h1>
+                <p>
+                    HTTP/2 attempts to solve many of the shortcomings and inflexibilities of HTTP/1.1.
+
+                    Its many benefits include:
                 </p>
+                <ul>
+                    <li>Multiplexing and concurrency: Several requests can be sent in rapid succession on the same TCP
+                        connection, and responses can be received out of order - eliminating the need for multiple
+                        connections between the client and the server
+                    </li>
+                    <li>Stream dependencies: the client can indicate to the server which of the resources are more
+                        important
+                        than the others
+                    </li>
+                    <li>Header compression: HTTP header size is drastically reduced</li>
+                    <li>Server push: The server can send resources the client has not yet requested</li>
+                </ul>
+            </section>
+            <section>
+                <img src="images/http2.png">
             </section>
             <section data-background="#dddddd">
                 <h2>Form</h2>
@@ -147,9 +152,9 @@
                 <h4 style="margin-bottom: 5px">Ajax</h4>
                 <p style="margin-top: 0; margin-bottom: 10px; font-size: 1.2rem">Asynchronous JavaScript + XML(?)</p>
                 <p style="font-size: 1.1rem; margin-top: 0">
-                    Ajax is a set of  Web technologies on the client side to create asynchronous Web applications
+                    Ajax is a set of Web technologies on the client side to create asynchronous Web applications
                 </p>
-                    <pre class="fragment">
+                <pre class="fragment">
                     <code>
                 function reqListener () {
                   console.log(this.responseText);
@@ -172,8 +177,8 @@
                 });
                     </code>
                     </pre>
-                </section>
             </section>
+        </section>
         </section>
         <section>
             <section>
@@ -182,22 +187,24 @@
             <section>
                 <h2>file:///</h2>
                 <p>
-                   file:///C:/My Documents - Opens a file or folder<br/>
+                    file:///C:/My Documents - Opens a file or folder<br/>
                     on a local or network drive.
                 </p>
                 <section>
-                    <div  style="display: flex">
-                    <img src="images/file.png" style="flex: 1; height: 350px; margin-right: 20px">
-                    <img src="images/file2.png" style="flex: 1; height: 350px">
+                    <div style="display: flex">
+                        <img src="images/file.png" style="flex: 1; height: 350px; margin-right: 20px">
+                        <img src="images/file2.png" style="flex: 1; height: 350px">
                     </div>
                 </section>
             </section>
             <section>
                 <h3>FTP</h3>
                 <p>File transfer protocol</p>
-                <p>FTP users may authenticate themselves with a clear-text sign-in protocol, normally in the form of a username and password.
+                <p>FTP users may authenticate themselves with a clear-text sign-in protocol, normally in the form of a
+                    username and password.
                     <br/><br/>- Can connect anonymously if the server is configured to allow it.
-                    <br/><br/>- Secure transmission that protects the username and password, and encrypts the content, FTP is often secured with SSL/TLS (FTPS)</p>
+                    <br/><br/>- Secure transmission that protects the username and password, and encrypts the content,
+                    FTP is often secured with SSL/TLS (FTPS)</p>
             </section>
             <section>
                 <img src="images/ftp.png">
@@ -210,9 +217,9 @@
             </section>
             <section>
                 <p>
-                The browser sends a request to the server, indicating that it wants to switch protocols
-                from HTTP to WebSocket. The client expresses its desire through the Upgrade header:
-                    </p>
+                    The browser sends a request to the server, indicating that it wants to switch protocols
+                    from HTTP to WebSocket. The client expresses its desire through the Upgrade header:
+                </p>
                 <pre>
                 <code>
         GET ws://echo.websocket.org/?encoding=text HTTP/1.1
@@ -225,12 +232,12 @@
         Sec-WebSocket-Version: 13
         </code>
                     </pre>
-        </section>
+            </section>
             <section>
-  <p> If the server understands the WebSocket protocol, it agrees to the protocol switch
-      through the Upgrade header.</p>
+                <p> If the server understands the WebSocket protocol, it agrees to the protocol switch
+                    through the Upgrade header.</p>
 
-               <pre><code>
+                <pre><code>
         HTTP/1.1 101 WebSocket Protocol Handshake
         Date: Fri, 10 Feb 2012 17:38:18 GMT
         Connection: Upgrade
@@ -241,45 +248,55 @@
         Sec-WebSocket-Accept: rLHCkw/SKsO9GAH/ZSFhBATDKrU=
         Access-Control-Allow-Headers: content-type
                     </code></pre>
-                    At this point the HTTP connection breaks down and is replaced by the WebSocket connection over the same underlying TCP/IP connection. The WebSocket connection uses the same ports as HTTP (80) and HTTPS (443), by default.
-                    </section>
-                <section>
-                    <h3>HTTP VS Websockets</h3>
-                    <h5>Http Advantages</h5>
-                    <ul>
-                        <li>
-                            Resource oriented structure on the protocol level.<br/>
-                            sockets are just unstructured data.
-                        </li>
-                        <li>
-                            Increases load on the server as each client keep a permanently open connection.
-                        </li>
-                    </ul>
-                    <h5>Websockets Advantages</h5>
-                    <ul>
-                        <li>
-                            Communication is set up once, saves on the time
-                            needed to set up the communication for reach request.
-                            (DNS lookup, Connection Initialization, SSL).
-                        </li>
-                        <li>
-                            The TCP layer doesnt need to be set up each time.
-                        </li>
-                        <li>
-                            Headers are much much smaller
-                        </li>
-                        <li>
-                            No need for the client to make unnecessary request which
-                            frees up resources on the client which need to handle
-                            the requests (javascript execution, the event loop stack).
-                        </li>
-                        <li>
-                            Since the server can push data to the client, state managments
-                            Is much easier. Each active connections can just receive new updates to data.
-                        </li>
-                    </ul>
-                </section>
-                <section data-background="images/jSxK33dwEMbkY.gif">Demo Time :)</section>
+                At this point the HTTP connection breaks down and is replaced by the WebSocket connection over the same
+                underlying TCP/IP connection. The WebSocket connection uses the same ports as HTTP (80) and HTTPS (443),
+                by default.
+            </section>
+            <section>
+                <h3>HTTP VS Websockets</h3>
+                <h5>Http Advantages</h5>
+                <ul>
+                    <li>
+                        Resource oriented structure on the protocol level.<br/>
+                        sockets are just unstructured data.
+                    </li>
+                    <li>
+                        Increases load on the server as each client keep a permanently open connection.
+                    </li>
+                </ul>
+                <h5>Websockets Advantages</h5>
+                <ul>
+                    <li>
+                        Communication is set up once, saves on the time
+                        needed to set up the communication for reach request.
+                        (DNS lookup, Connection Initialization, SSL).
+                    </li>
+                    <li>
+                        The TCP layer doesnt need to be set up each time.
+                    </li>
+                    <li>
+                        Headers are much much smaller
+                    </li>
+                    <li>
+                        No need for the client to make unnecessary request which
+                        frees up resources on the client which need to handle
+                        the requests (javascript execution, the event loop stack).
+                    </li>
+                    <li>
+                        Since the server can push data to the client, state managments
+                        Is much easier. Each active connections can just receive new updates to data.
+                    </li>
+                </ul>
+            </section>
+            <section data-background="images/jSxK33dwEMbkY.gif">Demo Time :)</section>
+        </section>
+        <section>
+            <h1>Code - server</h1>
+            <img src="images/server.png">
+        </section>
+        <section>
+            <h1>Code - client</h1>
+            <img src="images/client.png">
         </section>
         <section>
             <h1>Web RTC</h1>
@@ -292,6 +309,8 @@
         </section>
         <section>
             <h1>Thank you!</h1>
+            <p>https://github.com/mirih87/youtube-real-time-app</p>
+            <p>https://github.com/mirih87/webSocketsPresentation</p>
         </section>
     </div>
 </div>
