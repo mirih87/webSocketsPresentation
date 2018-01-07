@@ -26,7 +26,11 @@
     <div class="slides">
 
         <section>
-            <h1>Agenda - Browser communication</h1>
+            <h2>Browser communication</h2>
+            <img src="http://voyagecontrol.com/wp-content/uploads/2016/02/6a00e54ee3905b883301b8d0d56577970.jpg" />
+        </section>
+        <section>
+            <h2>Browser communication</h2>
             <ol>
                 <li class="fragment">Request - Response</li>
                 <li class="fragment">File</li>
@@ -45,9 +49,6 @@
                     Defines a set of request methods to indicate the desired
                     action to be performed for a given resource
                 </p>
-                <ul>
-                    <li>Plain text - human readable</li>
-                </ul>
             </section>
             <section>
                 <h1>HTTPS</h1>
@@ -255,8 +256,8 @@
             </section>
             <section>
                 <h3>HTTP VS Websockets</h3>
-                <h5>Http Advantages</h5>
-                <ul>
+                <h5 class="fragment">Http Advantages</h5>
+                <ul class="fragment">
                     <li>
                         Resource oriented structure on the protocol level.<br/>
                         sockets are just unstructured data.
@@ -265,8 +266,10 @@
                         Increases load on the server as each client keep a permanently open connection.
                     </li>
                 </ul>
+            </section>
+            <section>
                 <h5>Websockets Advantages</h5>
-                <ul>
+                <ul class="fragment">
                     <li>
                         Communication is set up once, saves on the time
                         needed to set up the communication for reach request.
@@ -292,11 +295,11 @@
             <section data-background="images/jSxK33dwEMbkY.gif">Demo Time :)</section>
         </section>
         <section>
-            <h1>Code - server</h1>
+            <h3>Code - server</h3>
             <img src="images/server.png">
         </section>
         <section>
-            <h1>Code - client</h1>
+            <h3>Code - client</h3>
             <img src="images/client.png">
         </section>
         <section>
@@ -307,6 +310,7 @@
                 as well as to exchange arbitrary data between browsers without requiring an intermediary.
                 The server only handles the introduction between the peers.
             </p>
+            <a href="https://appr.tc/" target="_blank">WebRTC Video Chat</a>
         </section>
         <section>
             <h1>Thank you!</h1>
