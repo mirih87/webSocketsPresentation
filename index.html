@@ -277,7 +277,26 @@
             <h3>Code - client</h3>
             <img src="images/client.png" style="height: 595px;">
         </section>
+        <section>
+            <h1>HTTP2</h1>
+            <p>
+                HTTP/2 attempts to solve many of the shortcomings and inflexibilities of HTTP/1.1.
 
+                Its many benefits include:
+            </p>
+            <ul>
+                <li>Multiplexing and concurrency: Several requests can be sent in rapid succession on the same TCP
+                    connection, and responses can be received out of order - eliminating the need for multiple
+                    connections between the client and the server
+                </li>
+                <li>Stream dependencies: the client can indicate to the server which of the resources are more
+                    important
+                    than the others
+                </li>
+                <li>Header compression: HTTP header size is drastically reduced</li>
+                <li>Server push: The server can send resources the client has not yet requested</li>
+            </ul>
+        </section>
         <section>
             <img src="images/http2.png">
             <a href="https://http2.akamai.com/demo" target="_blank">Http2 demo</a>
