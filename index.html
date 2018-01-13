@@ -32,11 +32,41 @@
         <section>
             <h2>Browser communication</h2>
             <ol>
-                <li class="fragment">Request - Response</li>
                 <li class="fragment">File</li>
+                <li class="fragment">Request - Response</li>
                 <li class="fragment">Two way - Fun Demo</li>
                 <li class="fragment">Peer to peer</li>
             </ol>
+        </section>
+        <section>
+            <section>
+                <h1>File Protocols</h1>
+            </section>
+            <section>
+                <h2>file:///</h2>
+                <p>
+                    file:///C:/My Documents - Opens a file or folder<br/>
+                    on a local or network drive.
+                </p>
+                <section>
+                    <div style="display: flex">
+                        <img src="images/file.png" style="flex: 1; height: 350px; margin-right: 20px">
+                        <img src="images/file2.png" style="flex: 1; height: 350px">
+                    </div>
+                </section>
+            </section>
+            <section>
+                <h3>FTP</h3>
+                <p>File transfer protocol</p>
+                <p>FTP users may authenticate themselves with a clear-text sign-in protocol, normally in the form of a
+                    username and password.
+                    <br/><br/>- Can connect anonymously if the server is configured to allow it.
+                    <br/><br/>- Secure transmission that protects the username and password, and encrypts the content,
+                    FTP is often secured with SSL/TLS (FTPS)</p>
+            </section>
+            <section>
+                <img src="images/ftp.png">
+            </section>
         </section>
         <section>
             <section>
@@ -49,12 +79,6 @@
                     Defines a set of request methods to indicate the desired
                     action to be performed for a given resource
                 </p>
-            </section>
-            <section>
-                <h1>HTTPS</h1>
-                <p>Hypertext Transfer Protocol Secure</p>
-                <p>Adds a layer of security on the data in transit through a secure socket layer (SSL)
-                    or transport layer security (TLS) protocol connection.</p>
             </section>
             <section>
                     <p>
@@ -98,28 +122,10 @@
                     </p>
                 </section>
             <section>
-                <h1>HTTP2</h1>
-                <p>
-                    HTTP/2 attempts to solve many of the shortcomings and inflexibilities of HTTP/1.1.
-
-                    Its many benefits include:
-                </p>
-                <ul>
-                    <li>Multiplexing and concurrency: Several requests can be sent in rapid succession on the same TCP
-                        connection, and responses can be received out of order - eliminating the need for multiple
-                        connections between the client and the server
-                    </li>
-                    <li>Stream dependencies: the client can indicate to the server which of the resources are more
-                        important
-                        than the others
-                    </li>
-                    <li>Header compression: HTTP header size is drastically reduced</li>
-                    <li>Server push: The server can send resources the client has not yet requested</li>
-                </ul>
-            </section>
-            <section>
-                <img src="images/http2.png">
-                <a href="https://http2.akamai.com/demo" target="_blank">Http2 demo</a>
+                <h1>HTTPS</h1>
+                <p>Hypertext Transfer Protocol Secure</p>
+                <p>Adds a layer of security on the data in transit through a secure socket layer (SSL)
+                    or transport layer security (TLS) protocol connection.</p>
             </section>
             <section data-background="#dddddd">
                 <h2>Form</h2>
@@ -179,37 +185,6 @@
                 });
                     </code>
                     </pre>
-            </section>
-        </section>
-        </section>
-        <section>
-            <section>
-                <h1>File Protocols</h1>
-            </section>
-            <section>
-                <h2>file:///</h2>
-                <p>
-                    file:///C:/My Documents - Opens a file or folder<br/>
-                    on a local or network drive.
-                </p>
-                <section>
-                    <div style="display: flex">
-                        <img src="images/file.png" style="flex: 1; height: 350px; margin-right: 20px">
-                        <img src="images/file2.png" style="flex: 1; height: 350px">
-                    </div>
-                </section>
-            </section>
-            <section>
-                <h3>FTP</h3>
-                <p>File transfer protocol</p>
-                <p>FTP users may authenticate themselves with a clear-text sign-in protocol, normally in the form of a
-                    username and password.
-                    <br/><br/>- Can connect anonymously if the server is configured to allow it.
-                    <br/><br/>- Secure transmission that protects the username and password, and encrypts the content,
-                    FTP is often secured with SSL/TLS (FTPS)</p>
-            </section>
-            <section>
-                <img src="images/ftp.png">
             </section>
         </section>
         <section>
@@ -301,6 +276,11 @@
         <section>
             <h3>Code - client</h3>
             <img src="images/client.png" style="height: 595px;">
+        </section>
+
+        <section>
+            <img src="images/http2.png">
+            <a href="https://http2.akamai.com/demo" target="_blank">Http2 demo</a>
         </section>
         <section>
             <h1>Web RTC</h1>
