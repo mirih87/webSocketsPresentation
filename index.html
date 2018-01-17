@@ -27,7 +27,7 @@
 
         <section>
             <h2>Browser communication</h2>
-            <img src="http://voyagecontrol.com/wp-content/uploads/2016/02/6a00e54ee3905b883301b8d0d56577970.jpg" />
+            <img src="http://voyagecontrol.com/wp-content/uploads/2016/02/6a00e54ee3905b883301b8d0d56577970.jpg"/>
         </section>
         <section>
             <h2>Browser communication</h2>
@@ -81,8 +81,8 @@
                 </p>
             </section>
             <section>
-                    <p>
-                    <pre style="background: #464646; font-size: 0.9rem">
+                <p>
+                <pre style="background: #464646; font-size: 0.9rem">
 
         <label style="color: #26aeff">GET</label>
         The GET method requests a representation of the specified resource.
@@ -119,8 +119,8 @@
         The PATCH method is used to apply partial modifications to a resource.
 
         </pre>
-                    </p>
-                </section>
+                </p>
+            </section>
             <section>
                 <h1>HTTPS</h1>
                 <p>Hypertext Transfer Protocol Secure</p>
@@ -146,6 +146,7 @@
             <label for="msg">Message:</label>
             <textarea id="msg" name="user_message"></textarea>
         </div>
+         <input type="submit" value="Submit">
     </form>
     </code></pre>
                 <pre><code class="hljs">
@@ -254,7 +255,7 @@
                         The TCP layer doesnt need to be set up each time.
                     </li>
                     <li>
-                        Headers are much much smaller
+                        No headers
                     </li>
                     <li>
                         No need for the client to make unnecessary request which
@@ -262,7 +263,7 @@
                         the requests (javascript execution, the event loop stack).
                     </li>
                     <li>
-                        Since the server can push data to the client, state managments
+                        Since the server can push data to the client, state managements
                         Is much easier. Each active connections can just receive new updates to data.
                     </li>
                 </ul>
